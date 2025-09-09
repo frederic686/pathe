@@ -37,7 +37,7 @@ const state = {
 const FIXED_OVERRIDES = {
   // pour mettre en gris taken
   taken: ['G9','G10','A1'],
-  gaps:  ['A5','A6','A13','A14'],
+  gaps:  ['A5','A6','A13','A14','P1','P18','E5'],
   customIcon: {
     'A7':  '../images/PICTOS/desactive.png',
     'A8':  '../images/PICTOS/desactive.png',
