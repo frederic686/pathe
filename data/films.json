@@ -1,0 +1,425 @@
+[
+  {
+    "titre": "Evanouis",
+    "image": "weapons.jpg",
+    "genre": [
+      "Épouvante",
+      "Horreur",
+      "Thriller"
+    ],
+    "durée_minutes": 88,
+    "âge_minimum": 12,
+    "avertissement_violence": true,
+    "mention_frisson": true,
+    "nouveau": false,
+    "séances": [
+      {
+        "horaire": "11:35",
+        "vf": true,
+        "vost": false,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 258,
+        "salle": 4,
+        "fin": "13:03"
+      },
+      {
+        "horaire": "13:00",
+        "vf": true,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 270,
+        "salle": 2,
+        "fin": "14:28"
+      },
+      {
+        "horaire": "15:45",
+        "vf": true,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 280,
+        "salle": 3,
+        "fin": "17:13"
+      },
+      {
+        "horaire": "16:15",
+        "vf": true,
+        "imax": true,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 290,
+        "salle": 1,
+        "fin": "17:43"
+      },
+      {
+        "horaire": "19:15",
+        "vf": true,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 250,
+        "salle": 5,
+        "fin": "20:43"
+      },
+      {
+        "horaire": "21:15",
+        "vf": true,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 245,
+        "salle": 6,
+        "fin": "22:43"
+      },
+      {
+        "horaire": "22:10",
+        "vf": true,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 240,
+        "salle": 7,
+        "fin": "23:38"
+      }
+    ]
+  },
+  {
+    "titre": "Karate Kid: Legends",
+    "image": "karate_kid.jpg",
+    "genre": [
+      "Arts Martiaux",
+      "Comédie"
+    ],
+    "durée_minutes": 114,
+    "âge_minimum": 10,
+    "avertissement_violence": false,
+    "mention_frisson": false,
+    "nouveau": true,
+    "séances": [
+      {
+        "horaire": "10:45",
+        "vf": true,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 275,
+        "salle": 8,
+        "fin": "12:39"
+      },
+      {
+        "horaire": "13:30",
+        "vf": true,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 260,
+        "salle": 9,
+        "fin": "15:24"
+      },
+      {
+        "horaire": "14:00",
+        "vf": true,
+        "imax": false,
+        "4k": true,
+        "4D": true,
+        "handicap": true,
+        "libres": 245,
+        "salle": 10,
+        "fin": "15:54"
+      },
+      {
+        "horaire": "15:45",
+        "vf": true,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 255,
+        "salle": 11,
+        "fin": "17:39"
+      },
+      {
+        "horaire": "16:10",
+        "vf": true,
+        "imax": false,
+        "4k": true,
+        "4D": false,
+        "handicap": true,
+        "libres": 240,
+        "salle": 12,
+        "fin": "18:04"
+      },
+      {
+        "horaire": "18:00",
+        "vf": true,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 230,
+        "salle": 1,
+        "fin": "19:54"
+      },
+      {
+        "horaire": "20:10",
+        "vf": true,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 225,
+        "salle": 2,
+        "fin": "22:04"
+      },
+      {
+        "horaire": "22:20",
+        "vf": false,
+        "vost": true,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 220,
+        "salle": 3,
+        "fin": "00:14"
+      }
+    ]
+  },
+  {
+    "titre": "Nobody 2",
+    "image": "nobody2.jpg",
+    "genre": [
+      "Action"
+    ],
+    "durée_minutes": 102,
+    "âge_minimum": 14,
+    "avertissement_violence": true,
+    "mention_frisson": false,
+    "nouveau": true,
+    "séances": [
+      {
+        "horaire": "10:30",
+        "vf": true,
+        "vost": false,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 270,
+        "salle": 4,
+        "fin": "12:12"
+      },
+      {
+        "horaire": "15:30",
+        "vf": true,
+        "vost": false,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 260,
+        "salle": 5,
+        "fin": "17:12"
+      },
+      {
+        "horaire": "17:40",
+        "vf": true,
+        "vost": false,
+        "imax": false,
+        "4k": true,
+        "4D": false,
+        "handicap": true,
+        "libres": 250,
+        "salle": 6,
+        "fin": "19:22"
+      },
+      {
+        "horaire": "18:20",
+        "vf": true,
+        "vost": false,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 245,
+        "salle": 7,
+        "fin": "20:02"
+      },
+      {
+        "horaire": "19:50",
+        "vf": false,
+        "vost": true,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 230,
+        "salle": 8,
+        "fin": "21:32"
+      },
+      {
+        "horaire": "22:00",
+        "vf": true,
+        "vost": false,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 220,
+        "salle": 9,
+        "fin": "23:42"
+      }
+    ]
+  },
+  {
+    "titre": "Y a-t-il un flic pour sauver le monde ?",
+    "image": "yatilunflic.jpg",
+    "genre": [
+      "Action",
+      "Comédie"
+    ],
+    "durée_minutes": 91,
+    "âge_minimum": 10,
+    "avertissement_violence": false,
+    "mention_frisson": false,
+    "nouveau": true,
+    "séances": [
+      {
+        "horaire": "11:15",
+        "vf": true,
+        "vost": false,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 265,
+        "salle": 10,
+        "fin": "12:46"
+      },
+      {
+        "horaire": "14:00",
+        "vf": true,
+        "vost": false,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 250,
+        "salle": 11,
+        "fin": "15:31"
+      },
+      {
+        "horaire": "16:00",
+        "vf": true,
+        "vost": false,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 245,
+        "salle": 12,
+        "fin": "17:31"
+      },
+      {
+        "horaire": "16:10",
+        "vf": true,
+        "vost": false,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 240,
+        "salle": 1,
+        "fin": "17:41"
+      },
+      {
+        "horaire": "18:15",
+        "vf": true,
+        "vost": false,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 235,
+        "salle": 2,
+        "fin": "19:46"
+      },
+      {
+        "horaire": "20:15",
+        "vf": false,
+        "vost": true,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 220,
+        "salle": 3,
+        "fin": "21:46"
+      }
+    ]
+  },
+  {
+    "titre": "Le monde de Wishy",
+    "image": "wishy.jpg",
+    "genre": [
+      "Animation",
+      "Aventure",
+      "Fantastique"
+    ],
+    "durée_minutes": 92,
+    "âge_minimum": 6,
+    "avertissement_violence": false,
+    "mention_frisson": false,
+    "nouveau": true,
+    "séances": [
+      {
+        "horaire": "10:30",
+        "vf": true,
+        "vost": false,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 290,
+        "salle": 4,
+        "fin": "12:02"
+      },
+      {
+        "horaire": "13:05",
+        "vf": true,
+        "vost": false,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 285,
+        "salle": 5,
+        "fin": "14:37"
+      },
+      {
+        "horaire": "15:00",
+        "vf": true,
+        "vost": false,
+        "imax": false,
+        "4k": false,
+        "4D": false,
+        "handicap": true,
+        "libres": 275,
+        "salle": 6,
+        "fin": "16:32"
+      }
+    ]
+  }
+]

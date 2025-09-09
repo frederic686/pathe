@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/ticket.css">
+    <title>ticket</title>
+</head>
+
+<body>
+    <main>
+        <div class="row">
+            <div class="container">
+                <div class="layout">
+                    <aside class="left">
+                        <nav class="breadcrumb" aria-label="Fil d’Ariane">
+                            <a href="../index.html">Accueil
+                                <img src="../assets/images/PICTOS/fleche.png" alt="→" class="icon-fleche" />
+                            </a>
+                            <a href="./catalogue.html">Choisir une séance
+                                <img src="../assets/images/PICTOS/fleche.png" alt="→" class="icon-fleche" />
+                            </a>
+                            <span class="current">Vos places</span>
+                        </nav>
+
+                        <div class="left-content">
+                            <img class="logo-pathe" src="../assets/images/PICTOS/logo-international-white 1.png"
+                                alt="Pathé" />
+                            <img id="filmPoster" class="poster" src="" alt="Affiche du film" />
+
+                            <div class="movie-info">
+                                <h1 id="movieTitle" class="title">Titre du film</h1>
+                                <p id="movieInfo" class="sub"></p>
+                            </div>
+
+                            <div class="seance-info">
+                                <div class="time-block">
+                                    <span id="seanceTime" class="time">15:00</span>
+                                    <span id="version" class="version">VOSTFR</span>
+                                </div>
+                                <p id="seanceEnd" class="end">Fin de la séance à 17:35</p>
+                            </div>
+                        </div>
+                    </aside>
+                    <div class="right-column">
+                        <header class="header">
+                            <a href="../index.html" class="back-button" id="homeLinkHeader">
+                                <span class="back-arrow">&lt;</span> Accueil
+                            </a>
+                        </header>
+                        <main class="main-content">
+                            <h1>Merci pour votre réservation</h1>
+                            <div class="ticket">
+                                <div class="ticket-header">
+                                    <p id="cinema-name">Pathé Lyon Bellecour</p>
+                                </div>
+
+                                <div class="ticket-body">
+                                    <h2 id="movie-title">EVANOUIS</h2>
+
+                                    <p class="ticket-info">
+                                        Séance <span id="session-time">11:35</span>
+                                        <span id="session-version">VF</span>
+                                    </p>
+
+                                    <p class="ticket-info">
+                                        Salle <span id="room-number">4</span>
+                                    </p>
+
+                                    <p class="ticket-info">
+                                        Siège <span id="seat-numbers">8H, 9H</span>
+                                    </p>
+
+                                    <p class="ticket-info total">
+                                        Total : <span id="total-price">30.30 €</span>
+                                    </p>
+
+                                    <div class="qr-code-container">
+                                        <img src="../assets/images/PICTOS/qr-code.png" alt="QR Code" id="qr-code">
+                                    </div>
+                                </div>
+
+                                <div class="ticket-footer">
+                                    <img src="../assets/images/PICTOS/logo-international-white 1.png"
+                                        alt="logo-international" class="logo-international">
+                                    <p>L'équipe de votre cinéma Pathé vous souhaite une bonne séance&nbsp;!</p>
+                                </div>
+                            </div>
+
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../assets/js/ticket.js"></script>
+</body>
+
+</html>

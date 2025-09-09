@@ -1,0 +1,140 @@
+/* =========================================================
+   Heebo – 6 variants (Light, Regular, Medium, Bold, ExtraBold, Black)
+   Placement recommandé :
+   - Ce fichier : /assets/css/global.css
+   - Polices    : /assets/fonts/*.ttf
+   ========================================================= */
+
+@font-face {
+  font-family: 'Heebo';
+  src: url('../fonts/Heebo-Light.ttf') format('truetype');
+  font-weight: 300; /* Light */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Heebo';
+  src: url('../fonts/Heebo-Regular.ttf') format('truetype');
+  font-weight: 400; /* Regular */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Heebo';
+  src: url('../fonts/Heebo-Medium.ttf') format('truetype');
+  font-weight: 500; /* Medium */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Heebo';
+  src: url('../fonts/Heebo-Bold.ttf') format('truetype');
+  font-weight: 700; /* Bold */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Heebo';
+  src: url('../fonts/Heebo-ExtraBold.ttf') format('truetype');
+  font-weight: 800; /* ExtraBold */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Heebo';
+  src: url('../fonts/Heebo-Black.ttf') format('truetype');
+  font-weight: 900; /* Black */
+  font-style: normal;
+  font-display: swap;
+}
+/* ====== Utilitaires de poids ====== */
+.heebo-300 { font-weight: 300; }  /* Light       */
+.heebo-400 { font-weight: 400; }  /* Regular     */
+.heebo-500 { font-weight: 500; }  /* Medium      */
+.heebo-700 { font-weight: 700; }  /* Bold        */
+.heebo-800 { font-weight: 800; }  /* ExtraBold   */
+.heebo-900 { font-weight: 900; }  /* Black       */
+
+/* Exemples rapides :
+   <h1 class="heebo-900">Titre fort</h1>
+   <p class="heebo-300">Texte léger</p>
+   <div class="heebo-800">Sous-titre très appuyé</div>
+*/
+
+/* ====== Base globale ====== */
+:root{
+  --ink:#1C2129;
+  --bg:#ffffff;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  background: var(--bg);
+  font-family: 'Heebo', system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 400;     /* Regular par défaut */
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+}
+
+/* ====== Hiérarchie typographique ====== */
+h1 {
+font-family: 'Heebo';
+font-style: normal;
+font-weight: 900;
+font-size: 96px;
+line-height: 141px;
+color: #FFFFFF;
+text-transform:uppercase;
+}
+
+h2 {
+  font-weight: 700;     /* Bold */
+  margin: .6em 0;
+  line-height: 1.25;
+}
+
+h3 {
+  font-weight: 500;     /* Medium (souvent utile) */
+  margin: .7em 0;
+  line-height: 1.3;
+}
+
+h4 {
+font-family: 'Heebo';
+font-style: normal;
+font-weight: 300;
+font-size: 50px;
+line-height: 73px;
+color: #FFFFFF;
+text-transform:uppercase;
+
+
+}
+
+p, li, span {
+  font-weight: 400;     /* Regular par défaut pour le texte courant */
+}
+
+/* ====== Liens & boutons ====== */
+
+
+button, .btn, a.btn {
+  font-family: inherit;
+  font-weight: 700;     /* Bold pour la CTA */
+  cursor: pointer;
+}
+
+
+
+
+

@@ -1,0 +1,350 @@
+/* =========================================================
+   0) Variables de thème
+   ========================================================= */
+:root { 
+  --bg-dark: #1C2129;
+  --ink: #1C2129;
+  --ink-2: #666;
+  --white: #fff;
+  --gold: #DAA846;
+  --green: #1E8E3E;
+  --shadow: 0 8px 24px rgba(0, 0, 0, .18);
+  --chip: #202020;
+}
+
+/* =========================================================
+   1) Grille de page & fond global
+   - .row, .container, .layout
+   ========================================================= */
+.row { width: 100%; }
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(360px, 520px) 1fr;
+  align-items: stretch;
+  font-family: Heebo, system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: #f5f6f8;
+}
+
+/* =========================================================
+   2) Utilitaires & icônes simples
+   ========================================================= */
+.icon-fleche { width: 9px; height: auto; }
+.icon-fleche.rotate { transform: rotate(180deg) }
+
+/* =========================================================
+   3) PANNEAU GAUCHE (fond image + voile + contenu centré)
+   - .left, pseudo-éléments, .breadcrumb, .left-content
+   ========================================================= */
+.left {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* Fond image (stretch complet) */
+.left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--left-bg, none);
+  background-position: center;
+  background-size: 100% 100%; /* pas coupé, pas de bandes */
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* Voile sombre (Rectangle 11 Figma) */
+.left::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #1C2129;
+  opacity: .83;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Fil d’Ariane */
+.breadcrumb {
+  position: absolute;
+  top: 18px;
+  left: 5%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #fff;
+  font-size: 12px;
+  z-index: 2;
+}
+.breadcrumb a { color: #fff; text-decoration: none; }
+.breadcrumb .current { opacity: .8; }
+
+/* Contenu centré gauche */
+.left-content {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  padding: 90px 5% 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  color: #fff;
+}
+
+.logo-pathe { height: 72px; width: auto; }
+
+.poster {
+  width: min(260px, 32vw);
+  height: auto;
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+}
+
+.film-title {
+  margin: 8px 0 4px;
+  font-size: 33px;
+  font-weight: 800;
+  text-align: center;
+  color: #fff;
+}
+
+/* Métadonnées séance */
+.seance-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 4px;
+  color: #fff;
+  text-align: center;
+}
+.seance-meta .lbl { font-size: 18px; font-weight: 800; }
+.seance-meta .val { font-size: 15px; }
+.seance-meta .end {
+  font-size: 11px;
+  color: #B3B3B3;
+  margin-top: 2px;
+  text-align: center;
+}
+
+/* Boutons (variantes ghost) */
+.btn-ghost { /* (laisse tel quel) */
+  background: #1F2228;
+  color: #fff;
+}
+.btn.ghost {
+  background: #61646A;
+  color: #fff;
+  border: 0;
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* =========================================================
+   4) PANNEAU DROIT – en-tête + titre + sous-titre
+   - .right, .topbar, .salle, .btn-compte, .desactive, .headline, .sub
+   ========================================================= */
+.right { padding: 28px min(4vw, 32px) 24px; }
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.salle {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.btn-compte {
+  background: var(--chip);
+  border-radius: 6px;
+  padding: 6px 12px;
+  border: 0;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Pictogramme "désactivé" dans l'en-tête (positionné absolument) */
+.desactive {
+  position: absolute;
+  height: 13px;
+  left: 50.59%;
+  right: 48.4%;
+  top: 48px;
+}
+
+/* Titres section droite */
+.headline {
+  margin: 22px 0 6px;
+  font-size: 30px;
+  font-weight: 700;
+}
+.sub {
+  margin: 0 0 18px;
+  color: var(--ink-2);
+  font-size: 15px;
+}
+
+/* =========================================================
+   5) Grille des sièges – états, catégories & gaps
+   - .grid, .seat, .seat.free/me/taken, .seat.gap, .seat.vip/pmr/custom
+   ========================================================= */
+.grid {
+  --cols: 18;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 34px);
+  gap: 10px;
+  justify-content: center;
+  padding: 16px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  animation: fadeIn .3s ease-out both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px) }
+  to   { opacity: 1; transform: none }
+}
+
+.seat { width: 34px; height: 26px; position: relative; }
+.seat button {
+  all: unset;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 6px;
+  position: relative;
+  outline-offset: 2px;
+}
+.seat button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: center/contain no-repeat;
+  transition: transform .12s ease, filter .15s ease;
+}
+
+/* États */
+.seat.free  button::before { background-image: url("../images/PICTOS/siege-jaune.png"); }
+.seat.me    button::before { background-image: url("../images/PICTOS/siege-vert.png"); }
+.seat.taken button::before { background-image: url("../images/PICTOS/siege-gris.png"); }
+
+.seat.free button:hover::before { filter: brightness(1.05); }
+
+.seat.me { animation: pop .18s ease-out; }
+@keyframes pop { from { transform: scale(.85) } to { transform: scale(1) } }
+
+.seat.taken { pointer-events: none; opacity: .7; }
+
+/* Gaps (espaces vides) */
+.seat.gap { opacity: 0; pointer-events: none; }
+.seat.gap button { display: none; }
+
+/* Catégories */
+.seat.pmr button::before {
+  background-image: url("../images/PICTOS/siege-gris.png");
+  filter: contrast(1.1);
+}
+.seat.vip button::before {
+  background-image: url("../images/PICTOS/siege-jaune.png");
+  box-shadow: 0 0 0 3px rgba(218, 168, 70, .25);
+}
+
+/* Icône personnalisée (custom) */
+.seat.custom button::before {
+  background-color: #DAA846;
+  background-image: var(--seat-bg) !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+}
+
+/* =========================================================
+   6) Écran & légende (sous la grille)
+   ========================================================= */
+.screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 18px 0 10px;
+}
+.screen .bar {
+  height: 10px;
+  background: #DAA846;
+  border-radius: 6px;
+  width: min(18vw, 260px);
+}
+.screen .label {
+  font-weight: 700;
+  color: #DAA846;
+  font-size: 20px;
+}
+
+.legend {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin: 8px 0 6px;
+  color: #444;
+}
+.leg {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 14px;
+}
+.leg .ico.seat {
+  width: 26px;
+  height: 20px;
+  display: inline-block;
+  background: center/contain no-repeat;
+}
+.leg .ico.free  { background-image: url("../images/PICTOS/siege-jaune.png"); }
+.leg .ico.taken { background-image: url("../images/PICTOS/siege-gris.png"); }
+.leg .ico.me    { background-image: url("../images/PICTOS/siege-vert.png"); }
+
+/* =========================================================
+   7) Récap & CTA (bouton continuer)
+   ========================================================= */
+.recap {
+  text-align: center;
+  margin: 10px 0 18px;
+  font-size: 15px;
+}
+
+.cta {
+  display: block;
+  width: 100%;
+  padding: 16px 18px;
+  border: 0;
+  background: #DAA846;
+  color: #111;
+  font-weight: 800;
+  font-size: 18px;
+  cursor: pointer;
+}
+.cta:disabled { opacity: .5; cursor: not-allowed; }
+.cta:not(:disabled):hover { filter: brightness(1.02); }

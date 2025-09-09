@@ -1,0 +1,299 @@
+/* Design tokens */
+:root {
+    --bg-dark: #1C2129;
+    --ink: #1C2129;
+    --ink-2: #666;
+    --white: #fff;
+    --gold: #DAA846;
+    --shadow: 0 8px 24px rgba(0, 0, 0, .18);
+    --surface: #f5f6f8;
+    --chip: #202020;
+}
+
+/* Structure générique */
+.row {
+    width: 100%;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(360px, 520px) 1fr;
+    align-items: stretch; /* Les enfants s'étirent à la même hauteur */
+    font-family: Heebo, system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    background: var(--surface);
+}
+
+/* Utilitaires */
+.icon-fleche {
+    width: 9px;
+    height: auto;
+}
+
+.icon-fleche.rotate {
+    transform: rotate(180deg);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ===================== COLONNE GAUCHE ===================== */
+.left {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.left::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--left-bg, none);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.left::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #1C2129;
+    opacity: .83;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Fil d’Ariane */
+.breadcrumb {
+    position: absolute;
+    top: 18px;
+    left: 5%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: #fff;
+    font-size: 12px;
+    z-index: 2;
+}
+
+.breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.breadcrumb .current {
+    opacity: .8;
+}
+
+/* Contenu centré */
+.left-content {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    padding: 90px 5% 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    color: #fff;
+}
+
+.logo-pathe {
+    height: 72px;
+    width: auto;
+}
+
+.poster {
+    width: min(260px, 32vw);
+    height: auto;
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+}
+
+.film-title {
+    margin: 8px 0 4px;
+    font-size: 33px;
+    font-weight: 800;
+    text-align: center;
+    color: #fff;
+}
+
+.seance-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-top: 4px;
+    color: #fff;
+    text-align: center;
+}
+
+.seance-meta .lbl {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.seance-meta .val {
+    font-size: 15px;
+}
+
+.seance-meta .end {
+    font-size: 11px;
+    color: #B3B3B3;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.btn.ghost {
+    background: #61646A;
+    color: #fff;
+    border: 0;
+    padding: 10px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+/* ===================== COLONNE DROITE ===================== */
+
+.ticket {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  background: var(--white);
+  border-radius: var(--ticket-radius);
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  padding: 28px 24px 24px;
+  margin-inline: auto;
+  isolation: isolate; /* s'assure que le filigrane passe derrière le contenu */
+}
+
+/* Filigrane jaune (gros logo Pathé) */
+.ticket::before {
+  content: "";
+  position: absolute;
+  inset: 8% 6% 22% 6%;
+  background-image: var(--ticket-watermark);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: .22;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* En bas à gauche : petit coq gris (facultatif) */
+.ticket::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  bottom: 26px;
+  width: 26px;
+  height: 26px;
+  background-image: var(--ticket-rooster);
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: .6;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Contenu au-dessus des pseudo-éléments */
+.ticket > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* En-tête */
+.ticket-header p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: left;
+}
+
+/* Corps */
+.ticket-body h2 {
+  margin: 0 0 8px 0;
+  font-size: 28px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: .5px;
+  color: var(--ink);
+  text-transform: uppercase; /* EVANOUIS style maquette */
+}
+
+.ticket-body .ticket-info {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.ticket-body .ticket-info strong,
+.ticket-body .ticket-info .lbl {
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.ticket-body .ticket-info .val {
+  color: #555;
+}
+
+/* Ligne “Total” mise en avant */
+.ticket-body .ticket-info.total {
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+/* QR en bas à droite, bloc visuel propre */
+.qr-code-container {
+  margin-top: 16px;
+  padding: 6px;
+  border-radius: 6px;
+  background: var(--white);
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  display: inline-block;
+  float: right;
+}
+
+.qr-code-container img {
+  width: 120px;
+  height: 120px;
+  display: block;
+}
+
+/* Logo international (petit pictogramme blanc/gris) */
+.logo-international {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  width: 42px;
+  height: auto;
+  opacity: .85;
+  background-color: #FFDC7D;
+}
+
+/* Pied de ticket */
+.ticket-footer {
+  clear: both;
+  margin-top: 16px;
+}
+
+.ticket-footer p {
+  margin: 12px 0 0 0;
+  color: #777;
+  font-size: 12px;
+  text-align: center;
+}
+

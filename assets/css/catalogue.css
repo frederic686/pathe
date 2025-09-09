@@ -1,0 +1,569 @@
+/* ===================== Thème ===================== */
+:root {
+  --bg: #090A0B;
+  --chip: #202020;
+  --txt: #fff;
+  --accent: #F7B500;
+  /* Jaune Pathé */
+}
+
+* {
+  box-sizing: border-box
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0
+}
+
+body {
+  background: var(--bg);
+  color: var(--txt);
+  font-family: Heebo, system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
+}
+
+/* ===================== Helpers ===================== */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0)
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 5%
+}
+
+.row {
+  width: 100%
+}
+
+/* ===================== Header ===================== */
+.header {
+  background: var(--bg);
+  padding: 10px 0
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 20px
+}
+
+.nav-link {
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  position: relative
+}
+
+.nav-link:hover {
+  opacity: .85
+}
+
+.nav-link.active .line {
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #fff
+}
+
+.icon-fleche {
+  width: 9px;
+  height: auto
+}
+
+.icon-fleche.rotate {
+  transform: rotate(180deg)
+}
+
+.nav-right .btn-compte {
+  background: var(--chip);
+  border-radius: 6px;
+  padding: 6px 12px;
+  border: 0;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ===================== Filtres ===================== */
+.search-filters {
+  background: transparent;
+  padding: 24px 5% 28px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.rect {
+  background: var(--chip);
+  border-radius: 6px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  min-width: 140px;
+}
+
+.rect-4 {
+  width: 180px
+}
+
+.rect-5 {
+  width: 110px
+}
+
+.rect-6 {
+  width: 160px
+}
+
+.rect-7 {
+  width: min(520px, 100%)
+}
+
+.filter-btn {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 16px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: 500 16px/24px Heebo, sans-serif;
+  color: #fff;
+}
+
+.filter-btn:hover {
+  filter: brightness(1.1)
+}
+
+.icon-arrow {
+  width: 11px;
+  height: auto;
+  display: block
+}
+
+.search-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px
+}
+
+.icon-loupe {
+  width: 21px;
+  height: auto;
+  display: block
+}
+
+.search-input {
+  flex: 1;
+  height: 100%;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font: 500 16px/24px Heebo, sans-serif;
+  color: #fff;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, .39)
+}
+
+/* Menus */
+.menu {
+  position: absolute;
+  z-index: 50;
+  background: #202020;
+  border: 1px solid #2f2f2f;
+  border-radius: 10px;
+  padding: 6px;
+  min-width: 200px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .35)
+}
+
+.menu.hidden {
+  display: none
+}
+
+.menu .title {
+  font: 800 11px/1 Heebo, sans-serif;
+  text-transform: uppercase;
+  opacity: .7;
+  padding: 6px 12px 2px
+}
+
+.menu button {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  font: 500 14px/1 Heebo, sans-serif;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+
+.menu button:hover {
+  background: #2b2b2b
+}
+
+/* ===================== Liste de films ===================== */
+.films {
+  padding: 8px 0 40px;
+  display: grid;
+  gap: 28px;
+}
+
+.film {
+  display: grid;
+  grid-template-columns: 94px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.film .poster {
+  width: 94px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #111;
+  transition: transform .25s ease;
+  cursor: pointer;
+}
+
+.film .poster:hover {
+  transform: scale(1.05);
+}
+
+.film {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.badge-frisson {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #2a2a2a;
+  color: #fff;
+  font: 600 12px/18px Heebo, sans-serif;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.badge-frisson::before {
+  content: "❤";
+  font-size: 12px;
+  line-height: 1;
+  opacity: .9
+}
+
+.film h3 {
+  margin: 0;
+  font: 900 22px/1 Heebo, sans-serif;
+  letter-spacing: .2px;
+}
+
+.meta {
+  color: #cfcfcf;
+  opacity: .9;
+  font: 500 13px/20px Heebo, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.meta .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #666;
+  display: inline-block;
+}
+
+/* Séances */
+.showtimes {
+  display: grid;
+  grid-template-columns: repeat(7, 176px);
+  gap: 14px;
+  justify-content: flex-start;
+}
+
+.showtime {
+  position: relative;
+  width: 100%;
+  height: 108px;
+  padding: 16px;
+  background: #242424;
+  border: 1px solid #2f2f2f;
+  border-radius: 12px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .25);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.showtime:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .35);
+  border-color: #3a3a3a
+}
+
+.showtime>div:first-child {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.showtime .time {
+  font: 900 28px/1 Heebo, sans-serif;
+  letter-spacing: .3px;
+}
+
+.showtime .lang {
+  font: 700 11px/1 Heebo, sans-serif;
+  opacity: .9;
+  text-transform: uppercase;
+}
+
+.showtime .flag {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font: 800 10px/1 Heebo, sans-serif;
+  letter-spacing: .6px;
+  color: #fff;
+  opacity: .9;
+  white-space: nowrap;
+}
+
+.showtime .icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: .9;
+}
+
+.icon-wheel {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background: url("../images/PICTOS/desactive.png") center/contain no-repeat;
+  opacity: .95;
+}
+
+/* ===================== Modal vidéo ===================== */
+.video-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .72);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.video-modal.open {
+  display: flex;
+}
+
+.video-modal-content {
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 12px 12px 16px;
+  width: min(920px, 96vw);
+  position: relative;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .5);
+}
+
+.close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 0;
+  background: var(--accent);
+  color: #111;
+  font: 900 18px/32px Heebo, sans-serif;
+  cursor: pointer;
+}
+
+.video-ratio {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden
+}
+
+.video-ratio iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0
+}
+
+/* ===== Badges "nouveau" / "âge" / "violence" (haut) ===== */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0 8px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font: 700 12px/1 Heebo, sans-serif;
+  padding: 4px 8px;
+  border-radius: 999px;
+  letter-spacing: .2px;
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.badge--new {
+  background: #f50505;
+  color: #fff;
+}
+
+/* Nouveauté */
+.badge--violence {
+  background: #D64545;
+  color: #fff;
+}
+
+/* Rouge */
+.badge--age {
+  background: #202020;
+  color: #fff;
+}
+
+/* Neutre sombre */
+
+/* On n'affiche PAS l'âge/violence ici (ils vont dans .meta) */
+.badges .badge--age,
+.badges .badge--violence {
+  display: none;
+}
+
+/* ===== Chips dans la ligne .meta ===== */
+.meta .chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 18px;
+  min-width: 18px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #2b2b2b;
+  color: #cfcfcf;
+  font: 700 11px/1 Heebo, sans-serif;
+  margin-left: 6px;
+}
+
+.meta .chip--age {
+  padding: 0 6px;
+  min-width: auto;
+}
+
+.meta .chip--violence {
+  width: 18px;
+  padding: 0;
+  min-width: 18px;
+}
+
+.meta .chip--violence::before {
+  content: "!";
+  font-weight: 900;
+}
+
+.title-row{
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Rectangle 9 (bloc contenant la flèche) ===== */
+.rectangle-9 {
+  position: fixed; /* toujours visible en bas à droite */
+  left: 93.28%;
+  right: 3.36%;
+  top: auto;
+  bottom: 1.83%;
+  
+  width: 56px;  /* adapte selon la maquette Figma */
+  height: 56px;
+  
+  background: #FEB91E;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,.15);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility .3s ease;
+  z-index: 1000;
+}
+
+/* quand on a scrollé */
+.rectangle-9.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* flèche à l’intérieur */
+.fleche-haut {
+  width: 22px;
+  height: 22px;
+  transform: rotate(-90deg); /* flèche droite -> haut */
+  user-select: none;
+  pointer-events: none;
+}

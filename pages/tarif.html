@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Tarifs – Pathé</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/tarif.css">
+</head>
+
+<body>
+    <main>
+        <div class="row">
+            <div class="container">
+                <div class="layout">
+
+                    <aside class="left">
+                        <nav class="breadcrumb" aria-label="Fil d’Ariane">
+                            <a href="../index.html">Accueil
+                                <img src="../assets/images/PICTOS/fleche.png" alt="→" class="icon-fleche" />
+                            </a>
+                            <a href="./catalogue.html">Choisir une séance
+                                <img src="../assets/images/PICTOS/fleche.png" alt="→" class="icon-fleche" />
+                            </a>
+                            <a href="./salle.html">Vos places
+                                <img src="../assets/images/PICTOS/fleche.png" alt="→" class="icon-fleche" />
+                            </a>
+                            <span class="current">Tarifs</span>
+                        </nav>
+
+                        <div class="left-content">
+                            <img class="logo-pathe" src="../assets/images/PICTOS/logo-international-white 1.png"
+                                alt="Pathé">
+                            <img id="filmPoster" class="poster" src="" alt="Affiche du film" />
+                            <h1 id="filmTitle" class="film-title">Titre</h1>
+
+                            <div class="seance-meta">
+                                <div class="lbl">Séance</div>
+                                <div class="val">
+                                    <time id="seanceTime">--:--</time>
+                                    <span id="seanceLang">—</span>
+                                    <div id="seanceEnd" class="end">Fin prévue —:—</div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <section class="right" aria-labelledby="h-tarifs">
+                        <header class="topbar">
+                            <div class="salle">
+                                Salle <span id="roomNo">–</span>
+                                <img src="../assets/images/PICTOS/desactive-black.png" alt="" class="desactive">
+                            </div>
+                            <button class="btn-compte" type="button" onclick="history.back()">
+                                <img src="../assets/images/PICTOS/fleche.png" alt="←" class="icon-fleche rotate" />
+                                Retour
+                            </button>
+                        </header>
+
+                        <h2 id="h-tarifs" class="headline">Sélectionnez vos tarifs</h2>
+                        <p id="seatsHint" class="sub">—</p>
+
+                        <div class="card promo">
+                            <div class="coupon">
+                                <img src="../assets/images/PICTOS/menu-passe.png" alt="menu-passe" class="menu-passe">
+                                <h3 for="promoInput" class="promo-label">Ajoutez votre CinéPass ou code promo…</h3>
+                                <div class="promo-row">
+
+                                    <button id="promoAdd" class="btn small" type="button">Ajouter</button>
+                                </div>
+                            </div>
+                            <div class="choix-tarif">
+                                <p id="promoMsg" class="promo-msg" aria-live="polite"></p>
+                                <div class="tarifs-grid">
+                                    <div class="tarif-item" data-code="MATIN">
+                                        <div class="name">Matin</div>
+                                        <div class="stepper">
+                                            <button class="minus" type="button" aria-label="Diminuer">
+                                                <img src="../assets/images/PICTOS/moins.png" alt="">
+                                            </button>
+                                            <span class="qty">0</span>
+                                            <button class="plus" type="button" aria-label="Augmenter">
+                                                <img src="../assets/images/PICTOS/plus.png" alt="">
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="tarif-item" data-code="U14">
+                                        <div class="name">Moins de 14 ans</div>
+                                        <div class="stepper">
+                                            <button class="minus" type="button" aria-label="Diminuer">
+                                                <img src="../assets/images/PICTOS/moins.png" alt="">
+                                            </button>
+                                            <span class="qty">0</span>
+                                            <button class="plus" type="button" aria-label="Augmenter">
+                                                <img src="../assets/images/PICTOS/plus.png" alt="">
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn-compte" type="button" onclick="history.back()">
+                                        <img src="../assets/images/PICTOS/fleche.png" alt="←"
+                                            class="icon-fleche rotate" />
+                                        modifier place
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="summary-band">
+                            <div class="card basket" aria-labelledby="basketTitle">
+                                <h3 id="basketTitle" class="h3">Mes tarifs</h3>
+                                <ul id="basketLines" class="lines" aria-live="polite" aria-atomic="true">
+                                    <li class="muted">Aucun tarif sélectionné</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bottom-bar">
+                            <div class="totalBox">
+                                <span class="label">Total à régler</span>
+                                <span id="basketTotalFooter" class="amount">0,00€</span>
+                            </div>
+                            <a id="btnContinue" class="cta">
+                                Continuer
+                            </a>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../assets/js/tarif.js"></script>
+</body>
+
+</html>

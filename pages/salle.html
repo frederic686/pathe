@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Vos places – Pathé (Salle)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/salle.css">
+</head>
+
+<body>
+  <main>
+    <div class="row">
+      <div class="container">
+        <div class="layout">
+
+          <!-- ============ PANNEAU GAUCHE ============ -->
+          <aside class="left">
+            <nav class="breadcrumb" aria-label="Fil d’Ariane">
+              <a href="../index.html">Accueil
+                <img src="../assets/images/PICTOS/fleche.png" alt="→" class="icon-fleche" />
+              </a>
+              <a href="./catalogue.html">Choisir une séance
+                <img src="../assets/images/PICTOS/fleche.png" alt="→" class="icon-fleche" />
+              </a>
+              <span class="current">Vos places</span>
+            </nav>
+
+            <div class="left-content">
+              <img class="logo-pathe" src="../assets/images/PICTOS/logo-international-white 1.png" alt="Pathé">
+              <img id="filmPoster" class="poster" src="" alt="Affiche du film" />
+              <h1 id="filmTitle" class="film-title">Titre</h1>
+
+              <div class="seance-meta">
+                <div class="lbl">Séance</div>
+                <div class="val">
+                  <time id="seanceTime">--:--</time>
+                  <span id="seanceLang">—</span>
+                  <div id="seanceEnd" class="end">Fin prévue —:—</div>
+                </div>
+              </div>
+
+              <button class="btn ghost" id="changeFilmBtn" type="button">Changer de film</button>
+            </div>
+          </aside>
+
+          <!-- ============ PANNEAU DROIT ============ -->
+          <section class="right" aria-labelledby="h-seats">
+            <header class="topbar">
+              <div class="salle">
+                <h3>Salle <span id="roomNo">–</span></h3>
+                
+                <img src="../assets/images/PICTOS/desactive-black.png" alt="logo-hanicap" class="desactive">
+              </div>
+              <button class="btn-compte" type="button" onclick="history.back()">
+                <img src="../assets/images/PICTOS/fleche.png" alt="←" class="icon-fleche rotate" />
+                Retour
+              </button>
+            </header>
+
+
+            <h2 id="h-seats" class="headline">Sélectionnez vos places</h2>
+            <p id="freeCount" class="sub">— places libres</p>
+
+            <div id="seatGrid" class="grid" role="grid" aria-label="Grille des sièges sélectionnable"></div>
+
+            <div class="screen">
+              <div class="bar"></div>
+              <div class="label">Écran</div>
+              <div class="bar"></div>
+            </div>
+
+            <div class="legend" aria-hidden="true">
+              <div class="leg"><span class="ico seat me"></span>Mes places</div>
+              <div class="leg"><span class="ico seat free"></span>Places libres</div>
+              <div class="leg"><span class="ico seat taken"></span>Indisponibles</div>
+            </div>
+
+            <div class="recap" aria-live="polite" aria-atomic="true">
+              <strong>Vos sièges :</strong> <span id="mySeats">—</span>
+            </div>
+
+            <button id="btnReserve" class="cta" type="button" disabled>
+              Réserver mes places →
+            </button>
+          </section>
+
+        </div><!-- /.layout -->
+      </div><!-- /.container -->
+    </div><!-- /.row -->
+  </main>
+
+  <script src="../assets/js/salle.js"></script>
+</body>
+
+</html>

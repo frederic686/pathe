@@ -1,0 +1,80 @@
+{
+  "Formules": [
+    {
+      "nom": "Menu cinéma",
+      "prix": 8.9,
+      "image": "menu_cinema_1.png",
+      "points": 2
+    },
+    {
+      "nom": "Menu duo",
+      "prix": 14.9,
+      "image": "menu_duo.png",
+      "points": 3
+    },
+    {
+      "nom": "Menu cinéma XL",
+      "prix": 20.5,
+      "image": "menu_cinema_xl.png",
+      "points": 4
+    }
+  ],
+  "Pop Corn et Sucreries": [
+    {
+      "nom": "Grand Pop Corn",
+      "prix": 7.2,
+      "image": "popcorn_grand.png",
+      "points": 2
+    },
+    {
+      "nom": "Moyen Pop Corn",
+      "prix": 6.2,
+      "image": "popcorn_moyen.png",
+      "points": 2
+    },
+    {
+      "nom": "Petit Pop Corn",
+      "prix": 5.2,
+      "image": "popcorn_petit.png",
+      "points": 1
+    },
+    {
+      "nom": "M&M's",
+      "prix": 3.5,
+      "image": "mms.png",
+      "points": 1
+    },
+    {
+      "nom": "Croco Haribo",
+      "prix": 2.5,
+      "image": "croco_haribo.png",
+      "points": 1
+    },
+    {
+      "nom": "KitKat",
+      "prix": 3.0,
+      "image": "kitkat.png",
+      "points": 1
+    }
+  ],
+  "Boissons": [
+    {
+      "nom": "Coca Cola",
+      "prix": 4.0,
+      "image": "coca.png",
+      "points": 1
+    },
+    {
+      "nom": "Sprite",
+      "prix": 4.0,
+      "image": "sprite.png",
+      "points": 1
+    },
+    {
+      "nom": "Eau Minéral",
+      "prix": 2.0,
+      "image": "eau.png",
+      "points": 1
+    }
+  ]
+}

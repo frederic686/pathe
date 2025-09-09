@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Catalogue – Pathé</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/catalogue.css">
+</head>
+
+<body>
+  <!-- ===================== HEADER ===================== -->
+  <header class="header">
+    <div class="container">
+      <div class="row">
+        <nav class="nav" aria-label="Fil d’Ariane">
+          <div class="nav-left">
+            <a href="../index.html" class="nav-link">
+              Accueil
+              <img src="../assets/images/PICTOS/fleche.png" alt="" class="icon-fleche" />
+            </a>
+            <a href="./catalogue.html" class="nav-link active" aria-current="page">
+              Choisir une séance
+              <span class="line" aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="nav-right">
+            <button class="btn-compte" type="button" onclick="history.back()">
+              <img src="../assets/images/PICTOS/fleche.png" alt="" class="icon-fleche rotate" />
+              Retour
+            </button>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== SOUS-HEADER / FILTRES ===================== -->
+  <main>
+
+    <section class="search-filters" aria-label="Filtres">
+      <!-- Genres -->
+      <div class="rect rect-4">
+        <button type="button" class="filter-btn" id="btnGenres" aria-expanded="false" aria-controls="menu-genres">
+          <span>Genres</span>
+          <img class="icon-arrow" src="../assets/images/PICTOS/fleche.png" alt="" />
+        </button>
+        <div id="menu-genres" class="menu hidden" role="menu" aria-labelledby="btnGenres"></div>
+      </div>
+
+      <!-- 4K -->
+      <div class="rect rect-5">
+        <button type="button" class="filter-btn" id="btn4K" aria-pressed="false">4K</button>
+      </div>
+
+      <!-- Langues -->
+      <div class="rect rect-6">
+        <button type="button" class="filter-btn" id="btnLangues" aria-expanded="false" aria-controls="menu-langues">
+          <span>Langues</span>
+          <img class="icon-arrow" src="../assets/images/PICTOS/fleche.png" alt="" />
+        </button>
+        <div id="menu-langues" class="menu hidden" role="menu" aria-labelledby="btnLangues"></div>
+      </div>
+
+      <!-- Recherche -->
+      <div class="rect rect-7">
+        <form class="search-form" role="search" onsubmit="return false">
+          <img src="../assets/images/PICTOS/loupe.png" alt="" class="icon-loupe" />
+          <label class="sr-only" for="searchInput">Rechercher un film</label>
+          <input id="searchInput" class="search-input" type="search" placeholder="Rechercher un film ou un genre…"
+            autocomplete="off" />
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================== LISTE DES FILMS ===================== -->
+
+    <div class="container">
+      <div class="row">
+        <section id="filmsList" class="films" aria-live="polite">
+          <!-- Les films sont injectés ici -->
+        </section>
+      </div>
+    </div>
+
+
+    <!-- ===================== MODAL VIDÉO ===================== -->
+    <div id="videoModal" class="video-modal" aria-hidden="true" role="dialog" aria-modal="true"
+      aria-label="Bande-annonce">
+      <div class="video-modal-content">
+        <button id="closeModal" class="close" type="button" aria-label="Fermer la vidéo">×</button>
+        <div class="video-ratio">
+          <iframe id="videoFrame" src="" title="Bande-annonce"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+<!--  bouton remonter en haut -->
+<div id="scrollTop" class="rectangle-9" role="button" aria-label="Revenir en haut">
+  <img src="../assets/images/PICTOS/fleche.png" alt="Flèche haut" class="fleche-haut" />
+</div>
+
+
+  </main>
+  <script src="../assets/js/catalogue.js" defer></script>
+</body>
+
+</html>
