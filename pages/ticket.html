@@ -8,7 +8,7 @@
     <title>ticket</title>
 </head>
 
-<body  class="page-ticket">
+<body class="page-ticket">
     <main>
         <div class="row">
             <div class="container">
@@ -23,23 +23,26 @@
                             </a>
                             <span class="current">Vos places</span>
                         </nav>
-
                         <div class="left-content">
                             <img class="logo-pathe" src="../assets/images/PICTOS/logo-international-white 1.png"
                                 alt="Pathé" />
                             <img id="filmPoster" class="poster" src="" alt="Affiche du film" />
 
+                            <!-- Titre : 2 variantes compatibles JS -->
+                            <h1 id="filmTitle" class="film-title" aria-live="polite"></h1>
                             <div class="movie-info">
-                                <h1 id="movieTitle" class="title">Titre du film</h1>
+                                <h1 id="movieTitle" class="title" aria-live="polite"></h1>
                                 <p id="movieInfo" class="sub"></p>
                             </div>
 
-                            <div class="seance-info">
+                            <!-- Séance : variantes combinées -->
+                            <div class="seance-info seance-meta">
                                 <div class="time-block">
-                                    <span id="seanceTime" class="time">15:00</span>
-                                    <span id="version" class="version">VOSTFR</span>
+                                    <span id="seanceTime" class="time">--:--</span>
+                                    <span id="seanceLang" class="version"></span>
+                                    <span id="version" class="version"></span>
                                 </div>
-                                <p id="seanceEnd" class="end">Fin de la séance à 17:35</p>
+                                <p id="seanceEnd" class="end">Fin prévue —:—</p>
                             </div>
                         </div>
                     </aside>

@@ -5,59 +5,61 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Paiement sécurisé – Pathé</title>
-<link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
-<body  class="page-paiement">
+<body class="page-paiement">
 
   <main>
     <div class="row">
       <div class="container">
         <div class="layout">
 
-               <aside class="left">
-                        <nav class="breadcrumb" aria-label="Fil d’Ariane">
-                            <a href="../index.html">Accueil
-                                <img src="../assets/images/PICTOS/fleche.png" alt="→" class="icon-fleche" />
-                            </a>
-                            <a href="./catalogue.html">Choisir une séance
-                                <img src="../assets/images/PICTOS/fleche.png" alt="→" class="icon-fleche" />
-                            </a>
-                            <span class="current">Vos places</span>
-                        </nav>
+          <aside class="left">
+            <nav class="breadcrumb" aria-label="Fil d’Ariane">
+              <a href="../index.html">Accueil
+                <img src="../assets/images/PICTOS/fleche.png" alt="→" class="icon-fleche" />
+              </a>
+              <a href="./catalogue.html">Choisir une séance
+                <img src="../assets/images/PICTOS/fleche.png" alt="→" class="icon-fleche" />
+              </a>
+              <span class="current">Vos places</span>
+            </nav>
+            <div class="left-content">
+              <img class="logo-pathe" src="../assets/images/PICTOS/logo-international-white 1.png" alt="Pathé" />
+              <img id="filmPoster" class="poster" src="" alt="Affiche du film" />
 
-                        <div class="left-content">
-                            <img class="logo-pathe" src="../assets/images/PICTOS/logo-international-white 1.png"
-                                alt="Pathé" />
-                            <img id="filmPoster" class="poster" src="" alt="Affiche du film" />
+              <!-- Titre : 2 variantes compatibles JS -->
+              <h1 id="filmTitle" class="film-title" aria-live="polite"></h1>
+              <div class="movie-info">
+                <h1 id="movieTitle" class="title" aria-live="polite"></h1>
+                <p id="movieInfo" class="sub"></p>
+              </div>
 
-                            <div class="movie-info">
-                                <h1 id="movieTitle" class="title">Titre du film</h1>
-                                <p id="movieInfo" class="sub"></p>
-                            </div>
+              <!-- Séance : variantes combinées -->
+              <div class="seance-info seance-meta">
+                <div class="time-block">
+                  <span id="seanceTime" class="time">--:--</span>
+                  <span id="seanceLang" class="version"></span>
+                  <span id="version" class="version"></span>
+                </div>
+                <p id="seanceEnd" class="end">Fin prévue —:—</p>
+              </div>
+            </div>
+          </aside>
 
-                            <div class="seance-info">
-                                <div class="time-block">
-                                    <span id="seanceTime" class="time">15:00</span>
-                                    <span id="version" class="version">VOSTFR</span>
-                                </div>
-                                <p id="seanceEnd" class="end">Fin de la séance à 17:35</p>
-                            </div>
-                        </div>
-                    </aside>
+          <section class="right">
 
-                    <section class="right">
-
-                        <header class="topbar">
-                            <div class="salle">
-                                Salle <span id="roomNo">–</span>
-                                <img src="../assets/images/PICTOS/desactive-black.png" alt="" class="desactive">
-                            </div>
-                            <button class="btn-compte" type="button" onclick="history.back()">
-                                <img src="../assets/images/PICTOS/fleche.png" alt="←" class="icon-fleche rotate" />
-                                Retour
-                            </button>
-                        </header>
+            <header class="topbar">
+              <div class="salle">
+                Salle <span id="roomNo">–</span>
+                <img src="../assets/images/PICTOS/desactive-black.png" alt="" class="desactive">
+              </div>
+              <button class="btn-compte" type="button" onclick="history.back()">
+                <img src="../assets/images/PICTOS/fleche.png" alt="←" class="icon-fleche rotate" />
+                Retour
+              </button>
+            </header>
 
 
             <h1 class="title">Paiement sécurisé</h1>
@@ -140,11 +142,12 @@
               Astuce : utilisez <kbd>TAB</kbd> et <kbd>ESPACE</kbd> pour ouvrir/fermer les sections.
             </p>
 
-          </section></div>
+          </section>
+        </div>
       </div>
     </div>
   </main>
-<script src="../assets/js/paiement.js"></script>
+  <script src="../assets/js/paiement.js"></script>
 </body>
 
 </html>

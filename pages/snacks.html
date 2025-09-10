@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
-<body  class="page-snacks">
+<body class="page-snacks">
   <main>
     <div class="row">
       <div class="container">
@@ -26,19 +26,25 @@
                   class="icon-fleche" /></a>
               <span class="current">Snacks</span>
             </nav>
-
             <div class="left-content">
               <img class="logo-pathe" src="../assets/images/PICTOS/logo-international-white 1.png" alt="Pathé" />
               <img id="filmPoster" class="poster" src="" alt="Affiche du film" />
-              <h1 id="filmTitle" class="film-title">Titre</h1>
 
-              <div class="seance-meta">
-                <div class="lbl">Séance</div>
-                <div class="val">
-                  <time id="seanceTime">--:--</time>
-                  <span id="seanceLang">—</span>
-                  <div id="seanceEnd" class="end">Fin prévue —:—</div>
+              <!-- Titre : 2 variantes compatibles JS -->
+              <h1 id="filmTitle" class="film-title" aria-live="polite"></h1>
+              <div class="movie-info">
+                <h1 id="movieTitle" class="title" aria-live="polite"></h1>
+                <p id="movieInfo" class="sub"></p>
+              </div>
+
+              <!-- Séance : variantes combinées -->
+              <div class="seance-info seance-meta">
+                <div class="time-block">
+                  <span id="seanceTime" class="time">--:--</span>
+                  <span id="seanceLang" class="version"></span>
+                  <span id="version" class="version"></span>
                 </div>
+                <p id="seanceEnd" class="end">Fin prévue —:—</p>
               </div>
             </div>
           </aside>
