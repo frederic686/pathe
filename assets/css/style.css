@@ -64,35 +64,7 @@
   font-display: swap;
 }
 
-/* ====== Utilitaires de poids ====== */
-.heebo-300 {
-  font-weight: 300;
-}
 
-/* Light       */
-.heebo-400 {
-  font-weight: 400;
-}
-
-/* Regular     */
-.heebo-500 {
-  font-weight: 500;
-}
-
-/* Medium      */
-.heebo-700 {
-  font-weight: 700;
-}
-
-/* Bold        */
-.heebo-800 {
-  font-weight: 800;
-}
-
-/* ExtraBold   */
-.heebo-900 {
-  font-weight: 900;
-}
 
 /* Black       */
 
@@ -370,8 +342,6 @@ a.btn {
   display: block;
   position: absolute;
   bottom: -3px;
-  left: 0;
-  right: 0;
   border-bottom: 1px solid #fff
 }
 
@@ -709,7 +679,6 @@ a.btn {
 .page-catalogue .close {
   position: absolute;
   top: 6px;
-  right: 10px;
   width: 32px;
   height: 32px;
   border-radius: 8px;
@@ -822,7 +791,6 @@ a.btn {
 .page-catalogue .rectangle-9 {
   position: fixed;
   left: 93.28%;
-  right: 3.36%;
   top: auto;
   bottom: 1.83%;
   width: 56px;
@@ -1398,7 +1366,6 @@ a.btn {
   position: absolute;
   height: 13px;
   left: 50.59%;
-  right: 48.4%;
   top: 48px;
 }
 
@@ -1911,7 +1878,6 @@ a.btn {
   position: absolute;
   height: 13px;
   left: 50.59%;
-  right: 48.4%;
   top: 48px;
 }
 
@@ -1989,10 +1955,11 @@ a.btn {
 .page-tarif .desactive {
   position: absolute;
   height: 13px;
-  left: 50.59%;
-  right: 48.4%;
+  left: 50%;
   top: 48px;
+  transform: translateX(-50%);
 }
+
 
 .page-tarif .topbar .btn-compte {
   background: var(--chip);
@@ -2436,7 +2403,6 @@ a.btn {
   background: var(--white);
   box-shadow: 0 2px 6px rgba(0, 0, 0, .06);
   display: inline-block;
-  float: right;
 }
 
 .page-ticket .qr-code-container img {

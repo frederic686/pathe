@@ -28,23 +28,11 @@
     const btnContinue = $('#btnContinue');
     const btnClear = $('#btnClear');
 
-    // Gauche
-    const leftPane = $('.left');
-    const posterEl = $('#filmPoster');
-    const titleEl = $('#filmTitle');
-    const seanceTimeEl = $('#seanceTime');
-    const seanceEndEl = $('#seanceEnd');
-    const seanceLangEl = $('#seanceLang');
-
     // --- Params & clé séance ---
     const qp = new URLSearchParams(location.search);
     const film = qp.get('film') || 'Film';
     const salle = qp.get('salle') || '—';
-    const langue = qp.get('langue') || '—';
     const seance = qp.get('seance') || '';
-    const endQP = qp.get('end') || '';
-    const posterParam = qp.get('poster') || '';
-    const format = qp.get('format') || '';
     const seatsStr = (qp.get('seats') || '').trim();
     const seats = seatsStr ? seatsStr.split(',').filter(Boolean) : [];
     const LS_MAIN = 'pathe_reservation';

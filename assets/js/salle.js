@@ -1,5 +1,5 @@
 // =========================================================
-// SALLE (Page 3) – Script
+// SALLE (Page 3) – Script COMPLET (corrigé)
 // =========================================================
 
 // ---------- Helpers & Params ----------
@@ -30,14 +30,16 @@ const state = {
   poster: '',
   format: '',
   end: '',
-  selectedSeance: null
+  selectedSeance: null  // objet séance du JSON (.libres, .salle, .horaire, .fin, etc.)
 };
 
 // ---------- Configuration des sièges ----------
 const FIXED_OVERRIDES = {
-  // pour mettre en gris taken
+  // sièges pris "forcés"
   taken: ['G9','G10','A1'],
+  // gaps fixes
   gaps:  ['A5','A6','A13','A14','P1','P18','E5'],
+  // icônes custom (si "desactive", considéré pris)
   customIcon: {
     'A7':  '../images/PICTOS/desactive.png',
     'A8':  '../images/PICTOS/desactive.png',
@@ -59,10 +61,17 @@ for (let r = 0; r < 16; r++) {
 // Id de siège "A1"
 const seatId = (r, c) => `${String.fromCharCode(65 + r)}${c + 1}`;
 
+// Normalisation pour matcher film/salle/heure de façon robuste
+function normalize(str=''){
+  return str.toString()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase().trim();
+}
+
 // Calcule l’indispo initiale
 function computeAvailability() {
   state.taken = new Set(FIXED_OVERRIDES.taken);
-  // Si certains customIcon sont "desactivés", on les force en pris
+  // Si certains customIcon sont "desactive", on les force en pris
   Object.entries(FIXED_OVERRIDES.customIcon || {}).forEach(([id, path]) => {
     if (/desactive/i.test(path || '')) state.taken.add(id);
   });
@@ -114,7 +123,6 @@ async function hydrateLeftColumn(qp){
     posterEl.alt = `Affiche : ${film}`;
   }
   if (leftPane){
-    // ✅ corrige le chemin de fond
     leftPane.style.setProperty('--left-bg', `url("../images/FILMS/${posterFile}")`);
   }
 
@@ -129,24 +137,41 @@ async function hydrateLeftColumn(qp){
       state.end = endQP;
     }else{
       try{
+        // 👇 Chemin corrigé
         const res  = await fetch('../data/films.json');
         const list = await res.json();
-        const f = list.find(x => x.titre === film);
-        const s = f?.séances?.find(x => String(x.salle) === String(salle) && x.horaire === seance);
+
+        // Match robuste sur le titre
+        let f = list.find(x => normalize(x.titre) === normalize(film));
+        if (!f) f = list.find(x => normalize(x.titre).includes(normalize(film)));
+
+        // Sélection de la séance (heure + salle), avec fallback
+        let s = f?.séances?.find(x =>
+          String(x.horaire).trim() === String(seance).trim() &&
+          String(x.salle) === String(salle)
+        );
+        if (!s && f?.séances?.length) {
+          s = f.séances.find(x => String(x.salle) === String(salle)) || f.séances[0];
+        }
+
         seanceEndEl.textContent = s?.fin ? `Fin prévue à ${s.fin}` : 'Fin prévue —:—';
         state.end = s?.fin || '';
-        state.selectedSeance = s;
+        state.selectedSeance = s || null;
         state.poster = posterFile;
         state.format = s?.imax ? 'IMAX' : (s?.['4k'] ? '4K' : '');
-      }catch{
+      }catch(err){
+        console.warn('[salle] fetch films.json a échoué :', err);
         seanceEndEl.textContent = 'Fin prévue —:—';
       }
     }
   }
 }
-    $('#changeFilmBtn')?.addEventListener('click', () => {
-        location.href = './catalogue.html';
-    });
+
+// Bouton "Changer de film"
+$('#changeFilmBtn')?.addEventListener('click', () => {
+  location.href = './catalogue.html';
+});
+
 // ---------- Colonne droite ----------
 const gridEl     = $('#seatGrid');
 const freeCountEl= $('#freeCount');
@@ -169,10 +194,10 @@ function renderGrid(){
         continue;
       }
 
-      const isCustom  = Object.prototype.hasOwnProperty.call(FIXED_OVERRIDES.customIcon, id);
-      const customPath= isCustom ? FIXED_OVERRIDES.customIcon[id] : '';
-      const isTaken   = state.taken.has(id) || (isCustom && /desactive/i.test(customPath));
-      const isMe      = state.selected.has(id);
+      const isCustom   = Object.prototype.hasOwnProperty.call(FIXED_OVERRIDES.customIcon, id);
+      const customPath = isCustom ? FIXED_OVERRIDES.customIcon[id] : '';
+      const isTaken    = state.taken.has(id) || (isCustom && /desactive/i.test(customPath));
+      const isMe       = state.selected.has(id);
 
       let cls = isTaken ? 'taken' : (isMe ? 'me' : 'free');
       if (isCustom){
@@ -225,6 +250,93 @@ function setTaken(...ids){
   persist(); renderGrid(); updateRecap();
 }
 
+// ---------- Capacité : agrandit si le JSON demande plus de "libres" ----------
+function ensureCapacityForLibres(targetLibres) {
+  if (!Number.isFinite(targetLibres) || targetLibres <= 0) return;
+
+  // capacité actuelle (hors gaps)
+  const currentCapacity = state.rows * state.cols - FIXED_OVERRIDES.gaps.length;
+  if (currentCapacity >= targetLibres) return;
+
+  // On augmente les colonnes (éviter les colonnes gap 4 et 15)
+  const isGapColumn = (colIdx) => (colIdx === 4 || colIdx === 15);
+
+  let cols = state.cols;
+  let capacity = currentCapacity;
+
+  while (capacity < targetLibres) {
+    cols += 1;
+    if (!isGapColumn(cols)) {
+      capacity += state.rows; // ajoute une colonne pleine
+    }
+  }
+  state.cols = cols;
+}
+
+// ---------- Synchroniser "libres" avec le JSON ----------
+function syncLibresWithJSON() {
+  const s = state.selectedSeance;
+  const libresJSON = Number(s?.libres);
+
+  if (!s) {
+    console.warn('[salle] Aucune séance sélectionnée — vérifier film/salle/heure & JSON');
+    return;
+  }
+  if (!Number.isFinite(libresJSON)) {
+    console.warn('[salle] "libres" absent ou invalide dans le JSON pour cette séance');
+    return;
+  }
+
+  // Assure d’abord que la salle peut contenir ce nombre
+  ensureCapacityForLibres(libresJSON);
+
+  // Recalcule la capacité après éventuelle extension
+  const totalSeats = state.rows * state.cols - FIXED_OVERRIDES.gaps.length;
+  const targetLibres = Math.max(0, Math.min(libresJSON, totalSeats));
+  const currentLibres = totalSeats - state.taken.size - state.selected.size;
+
+  if (currentLibres === targetLibres) return;
+
+  const isGap = id => FIXED_OVERRIDES.gaps.includes(id);
+  const isCustomDisabled = id =>
+    Object.prototype.hasOwnProperty.call(FIXED_OVERRIDES.customIcon, id) &&
+    /desactive/i.test(FIXED_OVERRIDES.customIcon[id] || '');
+
+  // Génère tous les ids de sièges valides (hors gaps)
+  const allSeatIds = [];
+  for (let r = 0; r < state.rows; r++) {
+    for (let c = 0; c < state.cols; c++) {
+      const id = `${String.fromCharCode(65 + r)}${c + 1}`;
+      if (!isGap(id)) allSeatIds.push(id);
+    }
+  }
+
+  if (currentLibres > targetLibres) {
+    // 👉 réduire le nombre de libres : marquer des sièges "pris"
+    let needToTake = currentLibres - targetLibres;
+    const candidates = allSeatIds.filter(id =>
+      !state.taken.has(id) && !state.selected.has(id)
+    );
+    for (const id of candidates) {
+      state.taken.add(id);
+      if (--needToTake <= 0) break;
+    }
+  } else {
+    // 👉 augmenter le nombre de libres : libérer des "pris" non-forcés
+    let needToFree = targetLibres - currentLibres;
+    const fixedTaken = new Set([
+      ...FIXED_OVERRIDES.taken,
+      ...Object.keys(FIXED_OVERRIDES.customIcon || {}).filter(isCustomDisabled)
+    ]);
+    const removable = [...state.taken].filter(id => !fixedTaken.has(id));
+    for (const id of removable) {
+      state.taken.delete(id);
+      if (--needToFree <= 0) break;
+    }
+  }
+}
+
+// ---------- Réservation ----------
 btnReserve?.addEventListener('click', ()=>{
   persist();
   const poster = state.poster || 'placeholder.jpg';
@@ -249,9 +361,10 @@ btnReserve?.addEventListener('click', ()=>{
 
 // ---------- BOOT ----------
 (async function(){
-  await hydrateLeftColumn(params); // gauche
-  computeAvailability();           // 👉 applique les "pris" (A1, etc.)
+  await hydrateLeftColumn(params); // gauche (charge state.selectedSeance)
+  computeAvailability();           // applique les "pris" (A1, etc.)
   restore();                       // recharge sélection éventuelle
+  syncLibresWithJSON();            // aligne "places libres" sur le JSON (ajuste capacité si besoin)
   renderGrid();                    // droite
   updateRecap();
 })();
