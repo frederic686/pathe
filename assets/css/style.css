@@ -114,22 +114,6 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  color: var(--ink);
-  background: var(--bg);
-  font-family: 'Heebo', system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
-  font-weight: 400;
-  /* Regular par défaut */
-  line-height: 1.5;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  font-kerning: normal;
-  font-variant-ligatures: common-ligatures;
-}
-
 /* ====== Hiérarchie typographique ====== */
 h1 {
   font-family: 'Heebo';
@@ -320,17 +304,8 @@ a.btn {
   /* Jaune Pathé */
 }
 
-.page-catalogue * {
-  box-sizing: border-box
-}
 
-.page-catalogue html,
-.page-catalogue body {
-  margin: 0;
-  padding: 0
-}
-
-.page-catalogue body {
+.page-catalogue{
   background: var(--bg);
   color: var(--txt);
   font-family: Heebo, system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
@@ -643,7 +618,7 @@ a.btn {
   width: 100%;
   height: 108px;
   padding: 16px;
-  background: #242424;
+  background:var(--chip);
   border: 1px solid #2f2f2f;
   border-radius: 12px;
   box-shadow: 0 2px 0 rgba(0, 0, 0, .25);
@@ -1034,7 +1009,7 @@ a.btn {
   text-decoration: none;
 }
 
-.page-paiement body {
+.page-paiement {
   font-family: Heebo, system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
   background: var(--surface);
   color: var(--ink);
@@ -1668,7 +1643,7 @@ a.btn {
   text-decoration: none;
 }
 
-.page-snacks body {
+.page-snacks {
   font-family: Heebo, system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
   background: var(--surface);
   color: var(--ink);

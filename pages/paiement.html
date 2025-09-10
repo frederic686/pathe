@@ -8,143 +8,146 @@
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
-<body class="page-paiement">
+<body>
 
   <main>
-    <div class="row">
-      <div class="container">
-        <div class="layout">
+    <div class="page-paiement">
+      <div class="row">
+        <div class="container">
+          <div class="layout">
 
-          <aside class="left">
-            <nav class="breadcrumb" aria-label="Fil d’Ariane">
-              <a href="../index.html">Accueil
-                <img src="../assets/images/PICTOS/fleche.png" alt="→" class="icon-fleche" />
-              </a>
-              <a href="./catalogue.html">Choisir une séance
-                <img src="../assets/images/PICTOS/fleche.png" alt="→" class="icon-fleche" />
-              </a>
-              <span class="current">Vos places</span>
-            </nav>
-            <div class="left-content">
-              <img class="logo-pathe" src="../assets/images/PICTOS/logo-international-white 1.png" alt="Pathé" />
-              <img id="filmPoster" class="poster" src="" alt="Affiche du film" />
+            <aside class="left">
+              <nav class="breadcrumb" aria-label="Fil d’Ariane">
+                <a href="../index.html">Accueil
+                  <img src="../assets/images/PICTOS/fleche.png" alt="→" class="icon-fleche" />
+                </a>
+                <a href="./catalogue.html">Choisir une séance
+                  <img src="../assets/images/PICTOS/fleche.png" alt="→" class="icon-fleche" />
+                </a>
+                <span class="current">Vos places</span>
+              </nav>
+              <div class="left-content">
+                <img class="logo-pathe" src="../assets/images/PICTOS/logo-international-white 1.png" alt="Pathé" />
+                <img id="filmPoster" class="poster" src="" alt="Affiche du film" />
 
-              <!-- Titre : 2 variantes compatibles JS -->
-              <h1 id="filmTitle" class="film-title" aria-live="polite"></h1>
-              <div class="movie-info">
-                <h1 id="movieTitle" class="title" aria-live="polite"></h1>
-                <p id="movieInfo" class="sub"></p>
-              </div>
-
-              <!-- Séance : variantes combinées -->
-              <div class="seance-info seance-meta">
-                <div class="time-block">
-                  <span id="seanceTime" class="time">--:--</span>
-                  <span id="seanceLang" class="version"></span>
-                  <span id="version" class="version"></span>
+                <!-- Titre : 2 variantes compatibles JS -->
+                <h1 id="filmTitle" class="film-title" aria-live="polite"></h1>
+                <div class="movie-info">
+                  <h1 id="movieTitle" class="title" aria-live="polite"></h1>
+                  <p id="movieInfo" class="sub"></p>
                 </div>
-                <p id="seanceEnd" class="end">Fin prévue —:—</p>
-              </div>
-            </div>
-          </aside>
 
-          <section class="right">
-
-            <header class="topbar">
-              <div class="salle">
-                Salle <span id="roomNo">–</span>
-                <img src="../assets/images/PICTOS/desactive-black.png" alt="" class="desactive">
-              </div>
-              <button class="btn-compte" type="button" onclick="history.back()">
-                <img src="../assets/images/PICTOS/fleche.png" alt="←" class="icon-fleche rotate" />
-                Retour
-              </button>
-            </header>
-
-
-            <h1 class="title">Paiement sécurisé</h1>
-
-            <section class="card" aria-label="Choisir mon mode de paiement">
-              <div class="accordion" id="payMethods">
-
-                <article class="ac-item open" data-method="card">
-                  <button class="ac-head" aria-expanded="true">
-                    <span class="title">Carte bancaire</span>
-                    <span class="logos" aria-hidden="true">
-                      <img class="logo" src="../assets/images/LOGO/cb.png" alt="Carte Bancaire">
-                      <img class="logo" src="../assets/images/LOGO/visa.webp" alt="Visa">
-                      <img class="logo" src="../assets/images/LOGO/mastercard.png" alt="Mastercard">
-                      <img class="logo" src="../assets/images/LOGO/amex.jpg" alt="American Express">
-                    </span>
-                  </button>
-                  <div class="ac-body" role="region" aria-label="Formulaire carte bancaire">
-                    <div class="ac-content">
-                      <div class="input">
-                        <label for="cc-number">Numéro de carte</label>
-                        <input id="cc-number" inputmode="numeric" autocomplete="cc-number"
-                          placeholder="1234 5678 9012 3456" aria-describedby="cc-hint">
-                        <div id="cc-hint" class="inline-help">Nous acceptons CB, Visa, Mastercard et Amex.</div>
-                      </div>
-
-                      <div class="grid-2" style="margin-top:10px">
-                        <div class="input">
-                          <label for="cc-exp">Date d’expiration</label>
-                          <input id="cc-exp" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/AA">
-                        </div>
-                        <div class="input">
-                          <label for="cc-cvc">Cryptogramme</label>
-                          <input id="cc-cvc" inputmode="numeric" autocomplete="cc-csc" placeholder="CVC">
-                        </div>
-                      </div>
-
-                      <div class="brand-row" id="brandRow" aria-live="polite"></div>
-                      <div class="note">Le débit est effectué uniquement après validation de votre commande.</div>
-                    </div>
+                <!-- Séance : variantes combinées -->
+                <div class="seance-info seance-meta">
+                  <div class="time-block">
+                    <span id="seanceTime" class="time">--:--</span>
+                    <span id="seanceLang" class="version"></span>
+                    <span id="version" class="version"></span>
                   </div>
-                </article>
+                  <p id="seanceEnd" class="end">Fin prévue —:—</p>
+                </div>
+              </div>
+            </aside>
 
-                <article class="ac-item" data-method="gpay">
-                  <button class="ac-head" aria-expanded="false">
-                    <span class="title">Google Pay</span>
-                    <span class="logos" aria-hidden="true">
-                      <img class="logo lg" src="../assets/images/LOGO/gpay.png" alt="Google Pay">
-                    </span>
-                  </button>
-                  <div class="ac-body" role="region" aria-label="Payer avec Google Pay">
-                    <div class="ac-content">
-                      <button class="pay-btn" id="btnGpay" aria-label="Payer avec Google Pay">
+            <section class="right">
+
+              <header class="topbar">
+                <div class="salle">
+                  Salle <span id="roomNo">–</span>
+                  <img src="../assets/images/PICTOS/desactive-black.png" alt="" class="desactive">
+                </div>
+                <button class="btn-compte" type="button" onclick="history.back()">
+                  <img src="../assets/images/PICTOS/fleche.png" alt="←" class="icon-fleche rotate" />
+                  Retour
+                </button>
+              </header>
+
+
+              <h1 class="title">Paiement sécurisé</h1>
+
+              <section class="card" aria-label="Choisir mon mode de paiement">
+                <div class="accordion" id="payMethods">
+
+                  <article class="ac-item open" data-method="card">
+                    <button class="ac-head" aria-expanded="true">
+                      <span class="title">Carte bancaire</span>
+                      <span class="logos" aria-hidden="true">
+                        <img class="logo" src="../assets/images/LOGO/cb.png" alt="Carte Bancaire">
+                        <img class="logo" src="../assets/images/LOGO/visa.webp" alt="Visa">
+                        <img class="logo" src="../assets/images/LOGO/mastercard.png" alt="Mastercard">
+                        <img class="logo" src="../assets/images/LOGO/amex.jpg" alt="American Express">
+                      </span>
+                    </button>
+                    <div class="ac-body" role="region" aria-label="Formulaire carte bancaire">
+                      <div class="ac-content">
+                        <div class="input">
+                          <label for="cc-number">Numéro de carte</label>
+                          <input id="cc-number" inputmode="numeric" autocomplete="cc-number"
+                            placeholder="1234 5678 9012 3456" aria-describedby="cc-hint">
+                          <div id="cc-hint" class="inline-help">Nous acceptons CB, Visa, Mastercard et Amex.</div>
+                        </div>
+
+                        <div class="grid-2" style="margin-top:10px">
+                          <div class="input">
+                            <label for="cc-exp">Date d’expiration</label>
+                            <input id="cc-exp" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/AA">
+                          </div>
+                          <div class="input">
+                            <label for="cc-cvc">Cryptogramme</label>
+                            <input id="cc-cvc" inputmode="numeric" autocomplete="cc-csc" placeholder="CVC">
+                          </div>
+                        </div>
+
+                        <div class="brand-row" id="brandRow" aria-live="polite"></div>
+                        <div class="note">Le débit est effectué uniquement après validation de votre commande.</div>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="ac-item" data-method="gpay">
+                    <button class="ac-head" aria-expanded="false">
+                      <span class="title">Google Pay</span>
+                      <span class="logos" aria-hidden="true">
                         <img class="logo lg" src="../assets/images/LOGO/gpay.png" alt="Google Pay">
-                        Continuer avec Google&nbsp;Pay
-                      </button>
-                      <div class="note">Redirection simulée vers Google Pay dans ce prototype.</div>
+                      </span>
+                    </button>
+                    <div class="ac-body" role="region" aria-label="Payer avec Google Pay">
+                      <div class="ac-content">
+                        <button class="pay-btn" id="btnGpay" aria-label="Payer avec Google Pay">
+                          <img class="logo lg" src="../assets/images/LOGO/gpay.png" alt="Google Pay">
+                          Continuer avec Google&nbsp;Pay
+                        </button>
+                        <div class="note">Redirection simulée vers Google Pay dans ce prototype.</div>
+                      </div>
                     </div>
+                  </article>
+                </div>
+              </section>
+
+              <div class="stickybar">
+                <div class="paybar">
+                  <div class="total">
+                    <small>Total à régler</small>
+                    <span id="totalAmount">30,30 €</span>
                   </div>
-                </article>
+                  <div class="cta">
+                    <button class="btn-ghost" type="button" onclick="history.back()">Retour</button>
+                    <button class="btn-primary btn-arrow" id="btnContinue" type="button">
+                      Continuer <span aria-hidden="true">➜</span>
+                    </button>
+                  </div>
+                </div>
               </div>
+
+              <p class="note" style="text-align:center;margin:14px 0 0">
+                Astuce : utilisez <kbd>TAB</kbd> et <kbd>ESPACE</kbd> pour ouvrir/fermer les sections.
+              </p>
+
             </section>
-
-            <div class="stickybar">
-              <div class="paybar">
-                <div class="total">
-                  <small>Total à régler</small>
-                  <span id="totalAmount">30,30 €</span>
-                </div>
-                <div class="cta">
-                  <button class="btn-ghost" type="button" onclick="history.back()">Retour</button>
-                  <button class="btn-primary btn-arrow" id="btnContinue" type="button">
-                    Continuer <span aria-hidden="true">➜</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <p class="note" style="text-align:center;margin:14px 0 0">
-              Astuce : utilisez <kbd>TAB</kbd> et <kbd>ESPACE</kbd> pour ouvrir/fermer les sections.
-            </p>
-
-          </section>
+          </div>
         </div>
       </div>
+
     </div>
   </main>
   <script src="../assets/js/paiement.js"></script>

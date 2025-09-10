@@ -8,93 +8,96 @@
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
-<body class="page-snacks">
+<body>
   <main>
-    <div class="row">
-      <div class="container">
-        <!-- La grille à 2 colonnes est appliquée directement sur .layout -->
-        <div class="layout">
+    <div class="page-snacks">
+      <div class="row">
+        <div class="container">
+          <!-- La grille à 2 colonnes est appliquée directement sur .layout -->
+          <div class="layout">
 
-          <!-- ========= COLONNE GAUCHE ========= -->
-          <aside class="left">
-            <nav class="breadcrumb" aria-label="Fil d’Ariane">
-              <a href="../index.html">Accueil <img src="../assets/images/PICTOS/fleche.png" alt="→"
-                  class="icon-fleche" /></a>
-              <a href="./catalogue.html">Choisir une séance <img src="../assets/images/PICTOS/fleche.png" alt="→"
-                  class="icon-fleche" /></a>
-              <a href="./salle.html">Vos places <img src="../assets/images/PICTOS/fleche.png" alt="→"
-                  class="icon-fleche" /></a>
-              <span class="current">Snacks</span>
-            </nav>
-            <div class="left-content">
-              <img class="logo-pathe" src="../assets/images/PICTOS/logo-international-white 1.png" alt="Pathé" />
-              <img id="filmPoster" class="poster" src="" alt="Affiche du film" />
+            <!-- ========= COLONNE GAUCHE ========= -->
+            <aside class="left">
+              <nav class="breadcrumb" aria-label="Fil d’Ariane">
+                <a href="../index.html">Accueil <img src="../assets/images/PICTOS/fleche.png" alt="→"
+                    class="icon-fleche" /></a>
+                <a href="./catalogue.html">Choisir une séance <img src="../assets/images/PICTOS/fleche.png" alt="→"
+                    class="icon-fleche" /></a>
+                <a href="./salle.html">Vos places <img src="../assets/images/PICTOS/fleche.png" alt="→"
+                    class="icon-fleche" /></a>
+                <span class="current">Snacks</span>
+              </nav>
+              <div class="left-content">
+                <img class="logo-pathe" src="../assets/images/PICTOS/logo-international-white 1.png" alt="Pathé" />
+                <img id="filmPoster" class="poster" src="" alt="Affiche du film" />
 
-              <!-- Titre : 2 variantes compatibles JS -->
-              <h1 id="filmTitle" class="film-title" aria-live="polite"></h1>
-              <div class="movie-info">
-                <h1 id="movieTitle" class="title" aria-live="polite"></h1>
-                <p id="movieInfo" class="sub"></p>
-              </div>
-
-              <!-- Séance : variantes combinées -->
-              <div class="seance-info seance-meta">
-                <div class="time-block">
-                  <span id="seanceTime" class="time">--:--</span>
-                  <span id="seanceLang" class="version"></span>
-                  <span id="version" class="version"></span>
+                <!-- Titre : 2 variantes compatibles JS -->
+                <h1 id="filmTitle" class="film-title" aria-live="polite"></h1>
+                <div class="movie-info">
+                  <h1 id="movieTitle" class="title" aria-live="polite"></h1>
+                  <p id="movieInfo" class="sub"></p>
                 </div>
-                <p id="seanceEnd" class="end">Fin prévue —:—</p>
-              </div>
-            </div>
-          </aside>
 
-          <!-- ========= COLONNE DROITE ========= -->
-          <section class="shop" aria-labelledby="shopTitle">
-            <header class="topbar">
-              <div class="salle">
-                Salle <span id="roomNo">–</span>
-                <img src="../assets/images/PICTOS/desactive-black.png" alt="" class="desactive">
-              </div>
-              <button class="btn-compte" type="button" onclick="history.back()">
-                <img src="../assets/images/PICTOS/fleche.png" alt="←" class="icon-fleche rotate" />
-                Retour
-              </button>
-            </header>
-            <div class="shop-head">
-              <h2 id="shopTitle">Profitez encore plus de votre séance</h2>
-              <p class="shop-sub">Choisissez vos snacks. Le panier se met à jour en temps réel.</p>
-            </div>
-
-            <!-- Le catalogue est rendu par snacks.js -->
-            <div id="catalog-container"></div>
-
-            <!-- Panier -->
-            <aside class="cart" aria-label="Mon panier">
-              <div class="cart-head">
-                <h2>Mon panier</h2>
-                <button id="btnClear" class="btn btn-ghost" type="button" title="Vider le panier">Vider</button>
-              </div>
-
-              <!-- Lignes de BILLETS importées depuis la page tarifs/localStorage -->
-              <ul id="ticketLines" class="cart-lines"></ul>
-
-              <!-- Lignes de SNACKS -->
-              <ul id="cartLines" class="cart-lines"></ul>
-
-              <footer class="cart-foot">
-                <div class="total">
-                  <span>Total à régler</span>
-                  <strong id="basketTotal">0,00 €</strong>
+                <!-- Séance : variantes combinées -->
+                <div class="seance-info seance-meta">
+                  <div class="time-block">
+                    <span id="seanceTime" class="time">--:--</span>
+                    <span id="seanceLang" class="version"></span>
+                    <span id="version" class="version"></span>
+                  </div>
+                  <p id="seanceEnd" class="end">Fin prévue —:—</p>
                 </div>
-                <a id="btnContinue" class="btn btn-primary btn-continue is-disabled" href="./paiement.html"
-                  aria-disabled="true">Continuer</a>
-              </footer>
+              </div>
             </aside>
-          </section>
 
+            <!-- ========= COLONNE DROITE ========= -->
+            <section class="shop" aria-labelledby="shopTitle">
+              <header class="topbar">
+                <div class="salle">
+                  Salle <span id="roomNo">–</span>
+                  <img src="../assets/images/PICTOS/desactive-black.png" alt="" class="desactive">
+                </div>
+                <button class="btn-compte" type="button" onclick="history.back()">
+                  <img src="../assets/images/PICTOS/fleche.png" alt="←" class="icon-fleche rotate" />
+                  Retour
+                </button>
+              </header>
+              <div class="shop-head">
+                <h2 id="shopTitle">Profitez encore plus de votre séance</h2>
+                <p class="shop-sub">Choisissez vos snacks. Le panier se met à jour en temps réel.</p>
+              </div>
+
+              <!-- Le catalogue est rendu par snacks.js -->
+              <div id="catalog-container"></div>
+
+              <!-- Panier -->
+              <aside class="cart" aria-label="Mon panier">
+                <div class="cart-head">
+                  <h2>Mon panier</h2>
+                  <button id="btnClear" class="btn btn-ghost" type="button" title="Vider le panier">Vider</button>
+                </div>
+
+                <!-- Lignes de BILLETS importées depuis la page tarifs/localStorage -->
+                <ul id="ticketLines" class="cart-lines"></ul>
+
+                <!-- Lignes de SNACKS -->
+                <ul id="cartLines" class="cart-lines"></ul>
+
+                <footer class="cart-foot">
+                  <div class="total">
+                    <span>Total à régler</span>
+                    <strong id="basketTotal">0,00 €</strong>
+                  </div>
+                  <a id="btnContinue" class="btn btn-primary btn-continue is-disabled" href="./paiement.html"
+                    aria-disabled="true">Continuer</a>
+                </footer>
+              </aside>
+            </section>
+
+          </div>
         </div>
       </div>
+
     </div>
 
   </main>
