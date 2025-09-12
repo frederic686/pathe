@@ -139,8 +139,8 @@ a.btn {
 /* BANNIÈRE TAILLE MAQUETTE */
 .page-banner .banner {
   position: relative;
-  width: 1280px;
-  height: 788px;
+  width: 100%;
+  height: 100vh;
   margin: 0 auto;
   overflow: hidden;
   background: #333;
@@ -238,8 +238,8 @@ a.btn {
 
 .page-banner .billet {
   position: absolute;
-  top: 546.77px;
-  left: 13.2%;
+  top: 629.77px;
+  left: 11%;
   height: 22px;
   transform: rotate(-44.02deg);
   z-index: 2;
@@ -278,8 +278,7 @@ a.btn {
 
 .page-catalogue .container {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 5%
+  margin-left: 2rem;
 }
 
 .page-catalogue .row {

@@ -49,7 +49,6 @@ function normalizeTitle(t) {
 const TRAILERS = new Map([
   ['evanouis', 'https://www.youtube.com/embed/eDBLToWrnBU'],
   ['le monde de wishy', 'https://www.youtube.com/embed/wiWYHjlhTKc'],
-  // À compléter avec les autres films
 ]);
 
 /* 4) Construction UI des menus + interactions filtres */
