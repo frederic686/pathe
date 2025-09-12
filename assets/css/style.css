@@ -1,15 +1,3 @@
-/* === style.scoped.fixed.css ===
-   Scoping correct par page (.page-xxx), at-règles préservées.
-*/
-
-/* ======= Début fonts.css ======= */
-/* =========================================================
-   Heebo – 6 variants (Light, Regular, Medium, Bold, ExtraBold, Black)
-   Placement recommandé :
-   - Ce fichier : /assets/css/global.css
-   - Polices    : /assets/fonts/*.ttf
-   ========================================================= */
-
 @font-face {
   font-family: 'Heebo';
   src: url('../fonts/Heebo-Light.ttf') format('truetype');
@@ -66,13 +54,6 @@
 
 
 
-/* Black       */
-
-/* Exemples rapides :
-   <h1 class="heebo-900">Titre fort</h1>
-   <p class="heebo-300">Texte léger</p>
-   <div class="heebo-800">Sous-titre très appuyé</div>
-*/
 
 /* ====== Base globale ====== */
 :root {

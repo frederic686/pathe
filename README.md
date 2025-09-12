@@ -17,3 +17,5 @@ CSS : Mise en forme responsive et animations.
 JavaScript : Interaction dynamique, gestion des données JSON, animations et effets.
 
 JSON : Stockage des films (films.json) et des snacks (snacks.json).
+
+FIGMA https://www.figma.com/design/Ka95DGL2PhErGYCDIr7laK/mon-projet-pathe?node-id=0-1&m=dev&t=NEwiJKhQAGE9pLRO-1
